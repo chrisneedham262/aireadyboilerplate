@@ -1,0 +1,252 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html {
+  @apply bg-white text-gray-900;
+}
+
+html.dark {
+  @apply bg-gray-900 text-white;
+}
+
+
+@layer components {
+  /* ========== TYPOGRAPHY - HEADINGS (Auto-switching) ========== */
+  
+  .h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight 
+    text-gray-900 dark:text-white;
+  }
+
+  .h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold leading-tight 
+    text-gray-900 dark:text-white;
+  }
+
+  .h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold leading-snug 
+    text-gray-900 dark:text-white;
+  }
+
+  .h4 {
+    @apply text-xl md:text-2xl lg:text-3xl font-semibold leading-snug 
+    text-gray-900 dark:text-white;
+  }
+
+  .h5 {
+    @apply text-lg md:text-xl lg:text-2xl font-semibold leading-normal 
+    text-gray-900 dark:text-white;
+  }
+
+  .h6 {
+    @apply text-base md:text-lg lg:text-xl font-semibold leading-normal 
+    text-gray-900 dark:text-white;
+  }
+
+  /* ========== TYPOGRAPHY - BODY TEXT (Auto-switching) ========== */
+  
+  .p-large {
+    @apply text-lg md:text-xl leading-relaxed 
+    text-gray-700 dark:text-gray-200;
+  }
+
+  .p-medium {
+    @apply text-base md:text-lg leading-relaxed 
+    text-gray-700 dark:text-gray-200;
+  }
+
+  .p-small {
+    @apply text-sm md:text-base leading-relaxed 
+    text-gray-600 dark:text-gray-300;
+  }
+
+  .p-caption {
+    @apply text-xs md:text-sm leading-normal 
+    text-gray-500 dark:text-gray-400;
+  }
+
+  /* ========== TYPOGRAPHY - LISTS (Auto-switching) ========== */
+  
+  .ul-list {
+    @apply list-disc list-inside space-y-2 
+    text-gray-700 dark:text-gray-200;
+  }
+
+  .ul-list-outside {
+    @apply list-disc list-outside ml-6 space-y-2 
+    text-gray-700 dark:text-gray-200;
+  }
+
+  .ol-list {
+    @apply list-decimal list-inside space-y-2 
+    text-gray-700 dark:text-gray-200;
+  }
+
+  .ol-list-outside {
+    @apply list-decimal list-outside ml-6 space-y-2 
+    text-gray-700 dark:text-gray-200;
+  }
+
+  .li-item {
+    @apply text-gray-700 dark:text-gray-200 leading-relaxed;
+  }
+
+  /* ========== SPECIAL TEXT CLASSES (Auto-switching) ========== */
+  
+  .text-lead {
+    @apply text-xl md:text-2xl leading-relaxed font-light 
+    text-gray-600 dark:text-gray-300;
+  }
+
+  .text-muted {
+    @apply text-gray-500 dark:text-gray-400;
+  }
+
+  .text-emphasis {
+    @apply text-gray-900 dark:text-white font-semibold;
+  }
+
+  /* ========== CARD COMPONENTS (Auto-switching) ========== */
+  
+  .card {
+    @apply bg-white dark:bg-gray-800 border 
+    border-gray-200 dark:border-gray-700 
+    rounded-lg p-6 shadow-sm;
+  }
+
+  .card-outline {
+    @apply h-64 border border-gray-200 dark:border-gray-700 
+    rounded-2xl m-3 bg-white dark:bg-gray-800;
+  }
+
+  .card-outline-lg {
+    @apply h-96 border border-gray-200 dark:border-gray-700 
+    rounded-2xl m-3 bg-white dark:bg-gray-800;
+  }
+
+  /* ========== BUTTON COMPONENTS ========== */
+  
+  /* Primary Buttons - Main call-to-action buttons */
+  .btn-primary-large {
+    @apply flex w-full justify-center rounded-md border border-transparent 
+    bg-indigo-600 py-3 px-6 text-base font-medium text-white shadow-sm 
+    hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 
+    focus:ring-offset-2 transition-colors duration-200;
+  }
+
+  .btn-primary-medium {
+    @apply flex w-full justify-center rounded-md border border-transparent 
+    bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm 
+    hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 
+    focus:ring-offset-2 transition-colors duration-200;
+  }
+
+  .btn-primary-small {
+    @apply flex justify-center rounded-md border border-transparent 
+    bg-indigo-600 py-1.5 px-3 text-xs font-medium text-white shadow-sm 
+    hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 
+    focus:ring-offset-2 transition-colors duration-200;
+  }
+
+  /* Secondary Buttons - Alternative actions */
+  .btn-secondary-large {
+    @apply flex w-full justify-center rounded-md border border-gray-300 
+    bg-white py-3 px-6 text-base font-medium text-gray-700 shadow-sm 
+    hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 
+    focus:ring-offset-2 transition-colors duration-200;
+  }
+
+  .btn-secondary-medium {
+    @apply flex w-full justify-center rounded-md border border-gray-300 
+    bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm 
+    hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 
+    focus:ring-offset-2 transition-colors duration-200;
+  }
+
+  .btn-secondary-small {
+    @apply flex justify-center rounded-md border border-gray-300 
+    bg-white py-1.5 px-3 text-xs font-medium text-gray-700 shadow-sm 
+    hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 
+    focus:ring-offset-2 transition-colors duration-200;
+  }
+
+  /* Success Buttons - Positive actions */
+  .btn-success-medium {
+    @apply flex w-full justify-center rounded-md border border-transparent 
+    bg-green-600 py-2 px-4 text-sm font-medium text-white shadow-sm 
+    hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 
+    focus:ring-offset-2 transition-colors duration-200;
+  }
+
+  /* Danger Buttons - Destructive actions */
+  .btn-danger-medium {
+    @apply flex w-full justify-center rounded-md border border-transparent 
+    bg-red-600 py-2 px-4 text-sm font-medium text-white shadow-sm 
+    hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 
+    focus:ring-offset-2 transition-colors duration-200;
+  }
+
+  /* Text Buttons - Minimal styling for navigation */
+  .btn-text-medium {
+    @apply text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white 
+    px-3 py-2 text-sm font-medium transition-colors duration-200;
+  }
+
+  .btn-text-large {
+    @apply text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white 
+    px-4 py-2 text-base font-medium transition-colors duration-200;
+  }
+
+  /* Icon Buttons - For icons/small actions */
+  .btn-icon-medium {
+    @apply relative rounded-full bg-white p-1.5 text-gray-400 
+    hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 
+    focus:ring-offset-2 transition-colors duration-200;
+  }
+
+  .btn-icon-large {
+    @apply relative rounded-full bg-white p-2 text-gray-400 
+    hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 
+    focus:ring-offset-2 transition-colors duration-200;
+  }
+
+  /* Menu Button - For mobile menu toggle */
+  .btn-menu {
+    @apply -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 
+    text-gray-700 hover:bg-gray-50 transition-colors duration-200;
+  }
+
+  /* Loading Button - For loading states */
+  .btn-loading {
+    @apply bg-indigo-500 text-white font-medium py-2 px-4 rounded-lg 
+    flex items-center opacity-75 cursor-not-allowed;
+  }
+
+  /* Block Navigation Button - For in-page navigation */
+  .btn-nav-block {
+    @apply block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 
+    hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white 
+    transition-colors duration-200;
+  }
+
+  /* Outline Buttons - Bordered style */
+  .btn-outline-medium {
+    @apply flex justify-center rounded-md border-2 border-indigo-600 
+    bg-transparent py-2 px-4 text-sm font-medium text-indigo-600 
+    hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 
+    focus:ring-offset-2 transition-colors duration-200;
+  }
+
+  /* Disabled state for all buttons */
+  .btn-disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+  }
+
+}
