@@ -16,7 +16,7 @@ export default function Home() {
 				<title>Launch Software in days, not weeks | launch software fast</title>
 				<meta
 					name="description"
-					content="We provide web development boilerplates for a range of different software choices.  Our goal is to deliver software fast for people with little or no coding experience."
+					content="We provide the best web development boilerplates for a range of different software choices.  Our goal is to deliver software fast for people with little or no coding experience."
 				/>
 				<meta
 					name="keywords"
