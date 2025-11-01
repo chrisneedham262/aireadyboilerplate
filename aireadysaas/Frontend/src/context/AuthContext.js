@@ -18,7 +18,7 @@ export const AuthProvider = ({ children, initialAccessToken }) => {
 
 	const loadUser = useCallback(async (token) => {
 		try {
-			const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/me/`, {
+			const res = await axios.get(`${process.env.API_URL}/api/me/`, {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},
@@ -42,7 +42,7 @@ export const AuthProvider = ({ children, initialAccessToken }) => {
 
 	const loadUserProfile = useCallback(async (token) => {
 		try {
-			const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/user-profile/`, {
+			const res = await axios.get(`${process.env.API_URL}/api/user-profile/`, {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},
@@ -65,7 +65,7 @@ export const AuthProvider = ({ children, initialAccessToken }) => {
 
 			// First, update text fields using the new text-only endpoint
 			const textRes = await axios.put(
-				`${process.env.NEXT_PUBLIC_API_URL}/api/user-profile/text/`, 
+				`${process.env.API_URL}/api/user-profile/text/`, 
 				textData,
 				{
 					headers: {
@@ -81,7 +81,7 @@ export const AuthProvider = ({ children, initialAccessToken }) => {
 				formData.append("avatar", avatarFile);
 
 				const avatarRes = await axios.put(
-					`${process.env.NEXT_PUBLIC_API_URL}/api/user-profile/avatar/`, 
+					`${process.env.API_URL}/api/user-profile/avatar/`, 
 					formData,
 					{
 						headers: {
@@ -117,10 +117,10 @@ export const AuthProvider = ({ children, initialAccessToken }) => {
 		try {
 			const storedRefreshToken = Cookies.get("refresh");
 			if (!storedRefreshToken) {
-				throw new Error("No refresh token available");
+				return null;
 			}
 
-			const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/token/refresh/`, {
+			const res = await axios.post(`${process.env.API_URL}/api/token/refresh/`, {
 				refresh: storedRefreshToken,
 			});
 
@@ -132,7 +132,14 @@ export const AuthProvider = ({ children, initialAccessToken }) => {
 			}
 		} catch (error) {
 			console.error("Failed to update token:", error);
-			await logout();
+			// Clear cookies silently instead of calling logout
+			Cookies.remove("access");
+			Cookies.remove("refresh");
+			setIsAuthenticated(false);
+			setUser(null);
+			setUserProfile(null);
+			setAccessToken(null);
+			setRefreshToken(null);
 		}
 		return null;
 	}, []);
@@ -199,7 +206,7 @@ export const AuthProvider = ({ children, initialAccessToken }) => {
 			setLoading(true);
 			setError(null);
 
-			const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/token/`, {
+			const res = await axios.post(`${process.env.API_URL}/api/token/`, {
 				username,
 				password,
 			});
@@ -230,7 +237,7 @@ export const AuthProvider = ({ children, initialAccessToken }) => {
 		try {
 			setLoading(true)
 
-			const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/register/`, {
+			const res = await axios.post(`${process.env.API_URL}/api/register/`, {
 				first_name: firstName,
 				last_name: lastName,
 				email,
@@ -283,7 +290,7 @@ export const AuthProvider = ({ children, initialAccessToken }) => {
 		try {
 			const currentRefreshToken = Cookies.get("refresh");
 			if (currentRefreshToken) {
-				axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/logout/`, {
+				axios.post(`${process.env.API_URL}/api/logout/`, {
 					refresh: currentRefreshToken
 				}).catch(error => console.error('Background logout error:', error));
 			}

@@ -14,7 +14,7 @@ const userProfileService = {
    */
   getProfile: async (accessToken) => {
     try {
-      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/user-profile/`, {
+      const response = await axios.get(`${process.env.API_URL}/api/user-profile/`, {
         headers: { 
           Authorization: `Bearer ${accessToken}` 
         },
@@ -44,7 +44,7 @@ const userProfileService = {
 
       // First, update text fields using the new text-only endpoint
       const textRes = await axios.put(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/user-profile/text/`, 
+        `${process.env.API_URL}/api/user-profile/text/`, 
         textData,
         {
           headers: {
@@ -60,7 +60,7 @@ const userProfileService = {
         formData.append("avatar", avatarFile);
 
         const avatarRes = await axios.put(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/user-profile/avatar/`, 
+          `${process.env.API_URL}/api/user-profile/avatar/`, 
           formData,
           {
             headers: {

@@ -12,7 +12,7 @@ export default function Chatbot() {
         setLoading(true);  // Show loading state
 
         try {
-            const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/ask/`, {
+            const res = await axios.post(`${process.env.API_URL}/api/ask/`, {
                 query: query,
                 user_id: "12345",
             });

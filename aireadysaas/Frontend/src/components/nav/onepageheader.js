@@ -14,7 +14,7 @@ export default function OnePageHeader({ scrollToSection }) {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/user-profile/`, {
+        const response = await axios.get(`${process.env.API_URL}/api/user-profile/`, {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
         setAvatarUrl(response.data.avatar || "/default-image.jpeg");

@@ -39,7 +39,7 @@ export default function ResetPasswordPage() {
 
 		try {
 			const response = await axios.post(
-				`${process.env.NEXT_PUBLIC_API_URL}/api/password-reset-confirm/`,
+				`${process.env.API_URL}/api/password-reset-confirm/`,
 				{
 					token: token,
 					password: password,

@@ -1,0 +1,125 @@
+
+# CRITICAL: READ THIS FILE FIRST - EVERY SINGLE TIME
+
+⚠️ **MANDATORY PRE-ACTION CHECK**
+- Before ANY action, read this entire file
+- Confirm you've read it by stating: "I have read .cursorrules"
+- If you don't read it first, STOP and read it before proceeding
+- This file overrides ALL other instructions
+
+---
+
+## Core Principle: Exact Reconstruction
+
+You are reconstructing an existing full-stack app **exactly**.
+
+### Fundamental Rules
+
+1. **Zero Creativity**
+   - Follow the spec literally
+   - Prefer correctness over brevity
+   - Do not add features, improvements, or "best practices" not in the spec
+   - No implicit "improvements" or optimizations
+
+2. **Version Freezing**
+   - Use versions exactly as specified
+   - Do not upgrade or suggest newer versions
+   - Lock dependencies to exact versions provided
+
+3. **Naming & Structure**
+   - Create files/folders with exact paths and names
+   - Do not rename symbols, props, or functions
+   - Match variable names, constants, and identifiers exactly
+   - Preserve exact capitalization and naming conventions
+
+4. **Styling & Markup**
+   - Use the exact Tailwind classes listed in each file spec
+   - Match DOM structure exactly (element types, nesting, attributes)
+   - Do not reorganize or simplify HTML/JSX structure
+   - Preserve className order as specified
+
+5. **Code Formatting**
+   - Use 2-space indentation consistently (or tabs where stated)
+   - Match whitespace, line breaks, and formatting style
+   - Preserve comment placement and content
+
+---
+
+## Technology Stack
+
+### Frontend
+- **React 19** (exact version as specified)
+- **Next.js 15** (Pages Router where stated)
+- No App Router unless explicitly specified
+- No server components unless explicitly specified
+- Match import statements and module structure exactly
+
+### Backend
+- **Django 5.1.5**
+- **Django REST Framework (DRF) 3.15.2**
+- **SimpleJWT** for authentication
+- Match endpoints, serializers, and permissions exactly
+- Preserve URL routing structure and names
+- Match model fields, validators, and methods exactly
+
+---
+
+## Decision Making
+
+### When Ambiguity Arises
+1. Ask **ONE** clarifying question
+2. Wait for answer
+3. Proceed deterministically based on the answer
+
+### What NOT to Do
+- ❌ Do not simplify code
+- ❌ Do not optimize beyond the specification
+- ❌ Do not refactor for "cleaner" code
+- ❌ Do not add error handling not in the spec
+- ❌ Do not suggest alternatives or improvements
+- ❌ Do not use different libraries or tools
+- ❌ Do not reorganize file structure
+- ❌ Do not combine or split components differently
+
+---
+
+## Verification Checklist
+
+Before completing any task, verify:
+
+- [ ] File paths and names match exactly
+- [ ] Function/variable names match exactly
+- [ ] Tailwind classes match exactly (same classes, same order)
+- [ ] DOM structure matches exactly
+- [ ] Indentation is consistent (2 spaces or tabs as specified)
+- [ ] Versions match exactly
+- [ ] No additional features or improvements added
+- [ ] No code simplified or refactored
+- [ ] All imports match the specification
+- [ ] API endpoints and structure match exactly
+
+---
+
+## The only exception
+
+If there is information missing that will not allow the code to work properly within the remit of the task, for example and import or correctly connecting to a function, you are allowed to make additional changes.
+
+## Response Format
+
+When implementing:
+1. State: "I have read .cursorrules"
+2. Confirm the exact specification you're following
+3. Implement exactly as specified
+4. If uncertain about ANY detail, ask before proceeding
+
+---
+
+**Remember: The goal is perfect reconstruction, not improvement.**
+
+
+
+
+
+
+
+

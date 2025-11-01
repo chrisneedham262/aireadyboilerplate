@@ -17,7 +17,7 @@ export default function ContactForm() {
     e.preventDefault();
     setStatus("Sending...");
     try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/contact/`, formData);
+      const response = await axios.post(`${process.env.API_URL}/api/contact/`, formData);
       setStatus(response.data.message || "Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
