@@ -131,8 +131,7 @@ export const AuthProvider = ({ children, initialAccessToken }) => {
 				return newAccess;
 			}
 		} catch (error) {
-			console.error("Failed to update token:", error);
-			// Clear cookies silently instead of calling logout
+			// Silently handle failed refresh - clear cookies and reset state
 			Cookies.remove("access");
 			Cookies.remove("refresh");
 			setIsAuthenticated(false);
@@ -150,36 +149,70 @@ export const AuthProvider = ({ children, initialAccessToken }) => {
 			let token = initialAccessToken || Cookies.get("access");
 			let refreshToken = Cookies.get("refresh");
 
-			if (refreshToken) {
-				setRefreshToken(refreshToken);
-				if (!token) {
-					token = await updateToken();
+			// If we have an access token, try to use it
+			if (token) {
+				setAccessToken(token);
+				if (refreshToken) {
+					setRefreshToken(refreshToken);
 				}
-				if (token) {
-					setAccessToken(token);
-					const success = await loadUser(token);
-					if (success) {
-						setIsAuthenticated(true);
+				
+				const success = await loadUser(token);
+				if (success) {
+					setIsAuthenticated(true);
+				} else {
+					// Access token invalid, try refresh if we have one
+					if (refreshToken) {
+						const newToken = await updateToken();
+						if (newToken) {
+							const retrySuccess = await loadUser(newToken);
+							if (retrySuccess) {
+								setIsAuthenticated(true);
+							} else {
+								// Still failed, clear everything
+								Cookies.remove("access");
+								Cookies.remove("refresh");
+								setIsAuthenticated(false);
+								setUser(null);
+								setUserProfile(null);
+								setAccessToken(null);
+								setRefreshToken(null);
+							}
+						} else {
+							// Refresh failed, clear everything
+							Cookies.remove("access");
+							Cookies.remove("refresh");
+							setIsAuthenticated(false);
+							setUser(null);
+							setUserProfile(null);
+							setAccessToken(null);
+							setRefreshToken(null);
+						}
 					} else {
-						// token invalid; clear state but do not redirect
+						// No refresh token to try, just clear
+						Cookies.remove("access");
 						setIsAuthenticated(false);
 						setUser(null);
 						setUserProfile(null);
 						setAccessToken(null);
 					}
-				} else {
-					// no valid access even after refresh; clear state only (no redirect)
-					setIsAuthenticated(false);
-					setUser(null);
-					setUserProfile(null);
-					setAccessToken(null);
 				}
-			} else {
-				// unauthenticated; clear state only (no redirect)
+			} else if (refreshToken) {
+				// No access token but there's a refresh token
+				// This is likely a stale cookie - just clear it silently
+				// Don't attempt API call since it will likely fail
+				Cookies.remove("refresh");
 				setIsAuthenticated(false);
 				setUser(null);
 				setUserProfile(null);
 				setAccessToken(null);
+				setRefreshToken(null);
+			} else {
+				// No tokens at all - user is simply not authenticated
+				setIsAuthenticated(false);
+				setUser(null);
+				setUserProfile(null);
+				setAccessToken(null);
+				setRefreshToken(null);
 			}
 
 			setLoading(false);
