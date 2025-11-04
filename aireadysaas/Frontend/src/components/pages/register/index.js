@@ -64,7 +64,7 @@ export default function RegisterPage() {
 										value={firstName}
 										onChange={(e) => setFirstName(e.target.value)}
 										required
-										className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+										className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-white text-gray-900"
 									/>
 								</div>
 							</div>
@@ -82,7 +82,7 @@ export default function RegisterPage() {
 										value={lastName}
 										onChange={(e) => setLastName(e.target.value)}
 										required
-										className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+										className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm  bg-white text-gray-900"
 									/>
 								</div>
 							</div>
@@ -101,7 +101,7 @@ export default function RegisterPage() {
 										pattern="\S+@\S+\.\S+"
 										title="Your email is invalid"
 										required
-										className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+										className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm  bg-white text-gray-900"
 									/>
 								</div>
 							</div>
@@ -120,7 +120,7 @@ export default function RegisterPage() {
 										onChange={(e) => setPassword(e.target.value)}
 										minLength={6}
 										required
-										className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+										className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm  bg-white text-gray-900"
 									/>
 								</div>
 							</div>
