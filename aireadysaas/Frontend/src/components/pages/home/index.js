@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useContext, useState, useEffect, useRef  } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import { ArrowUpRightIcon  } from '@heroicons/react/24/outline'
 import Image from "next/image";
@@ -70,7 +70,7 @@ export default function HomePage() {
         </div>
       )}
 
-      <div className="bg-white dark:bg-gray-900">
+      <div className="surface-toggle">
       <main className="isolate">
         {/* Hero section */}
         <div className="relative pt-14">

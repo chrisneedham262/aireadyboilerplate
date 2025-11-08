@@ -9,7 +9,7 @@ export async function getServerSideProps({ res }) {
       "services",
       "blog",
     ];
-  
+
     // Generate XML entries for static pages
     const urls = staticPages
       .map((page) => {

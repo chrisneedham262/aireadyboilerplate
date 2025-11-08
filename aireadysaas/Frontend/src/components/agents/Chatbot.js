@@ -28,7 +28,7 @@ export default function Chatbot() {
     };
 
     return (
-        <div className="p-6 max-w-lg mx-auto bg-white dark:bg-gray-900">
+        <div className="p-6 max-w-lg mx-auto surface-toggle">
          
             
             <div className="flex mb-4">

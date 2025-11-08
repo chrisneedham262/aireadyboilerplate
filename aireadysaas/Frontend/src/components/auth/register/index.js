@@ -1,7 +1,7 @@
 "use client";
 
 import React, {useState, useContext, useEffect} from "react"
-import {useRouter} from "next/navigation"
+import {useRouter} from "next/router"
 import Image from "next/image"
 import AuthContext from "../../../context/AuthContext";
 import {toast} from "react-toastify"

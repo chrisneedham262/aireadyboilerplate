@@ -12,25 +12,7 @@ export default function Home() {
 
   return (
     <>
-    	<Head>
-				<title>Launch Software in days, not weeks | launch software fast</title>
-				<meta
-					name="description"
-					content="We provide the very best web development boilerplates for a range of different software choices.  Our goal is to deliver software fast for people with little or no coding experience."
-				/>
-				<meta
-					name="keywords"
-					content="web developement, ai applications, software development, launch software"
-				/>
-				<meta
-					property="og:title"
-					content="Boilerplate software| next.js, python, react, django -  Launch Software Fast"
-				/>
-				<meta
-					property="og:description"
-					content="We create amazing software boilerplates using tech like next.js, python, react, django"
-				/>
-			</Head>
+    	
     
     {isAuthenticated ? <Dashboard /> : <HomePage />}
     </>

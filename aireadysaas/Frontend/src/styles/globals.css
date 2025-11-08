@@ -121,6 +121,10 @@ html.dark {
     rounded-lg p-6 shadow-sm;
   }
 
+  .surface-toggle {
+    @apply bg-white dark:bg-gray-900;
+  }
+
   .card-outline {
     @apply h-64 border border-gray-200 dark:border-gray-700 
     rounded-2xl m-3 bg-white dark:bg-gray-800;

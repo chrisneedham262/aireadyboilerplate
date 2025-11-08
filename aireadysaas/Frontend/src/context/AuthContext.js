@@ -269,6 +269,7 @@ export const AuthProvider = ({ children, initialAccessToken }) => {
 	const register = useCallback(async ({firstName, lastName, email, password}) => {
 		try {
 			setLoading(true)
+			setError(null) // Clear any previous errors
 
 			const res = await axios.post(`${process.env.API_URL}/api/register/`, {
 				first_name: firstName,
@@ -278,18 +279,18 @@ export const AuthProvider = ({ children, initialAccessToken }) => {
 			})
 
 			if (res.data.message) {
-				setLoading(false)
 				router.push("/login")
 			}
 		} catch (error) {
 			console.log(error.response)
-			setLoading(false)
 			setError(
 				error.response &&
 					(error.response.data.detail || error.response.data.error)
 			)
+		} finally {
+			setLoading(false) // Always set loading to false
 		}
-	}, [loadUser, router])
+	}, [router])
 	const logout = useCallback(async () => {
 		// Clear state immediately to prevent loading spinners
 		setIsAuthenticated(false);
